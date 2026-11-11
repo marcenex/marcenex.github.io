@@ -121,6 +121,10 @@
   .ls .org { color: var(--cyan); text-align: right; white-space: nowrap; }
   @media (max-width: 640px) { .ls .perm { display: none; } }
 
+  .base { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 860px) { .base { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .base { grid-template-columns: 1fr; } }
+
   /* skills json */
   pre.json { margin: 0; white-space: pre-wrap; word-break: break-word; font: inherit; font-size: 13.5px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; }
   .k { color: var(--cyan); } .s { color: var(--green); } .pn { color: var(--dim); } .n { color: var(--amber); }
@@ -203,6 +207,7 @@
           <a href="#sobre-mi">sobre_mi</a>
           <a href="#enfoque">enfoque</a>
           <a href="#certificaciones">certificaciones</a>
+          <a href="#base">conocimientos_base</a>
           <a href="#skills">skills</a>
           <a href="#idiomas">idiomas</a>
           <a href="#formacion">formacion</a>
@@ -253,9 +258,19 @@
             <tr><td class="perm">-rw-r--r--</td><td class="file">Introducción al Red Teaming<small>Técnicas y metodología de simulación de adversarios</small></td><td class="org">—</td></tr>
             <tr><td class="perm">-rw-r--r--</td><td class="file">B2 First (FCE)<small>Inglés · nivel B2 del MCER</small></td><td class="org">Cambridge</td></tr>
             <tr><td class="perm">-rw-r--r--</td><td class="file">B1 Preliminary (PET)<small>Inglés · nivel B1 del MCER</small></td><td class="org">Cambridge</td></tr>
-            <tr><td class="perm">-rw-r--r--</td><td class="file">A1 (Cambridge English)<small>Inglés · nivel A1 del MCER</small></td><td class="org">Cambridge</td></tr>
             <tr><td class="perm">-rw-r--r--</td><td class="file">MATLAB Onramp<small>Fundamentos de MATLAB</small></td><td class="org">MathWorks</td></tr>
           </table>
+        </div>
+      </section>
+
+      <!-- CONOCIMIENTOS BASE -->
+      <section id="base">
+        <h2 class="sh"><span class="p">marcos@<span class="host">marcenex</span>:<span class="path">~</span>$</span> <span class="cmd">ls ./conocimientos_base</span></h2>
+        <div class="base">
+          <div class="card"><div class="ic">lab/</div><h3>Hack The Box</h3><p>Laboratorios de ciberseguridad</p></div>
+          <div class="card"><div class="ic">os/</div><h3>Kali Linux</h3><p>Entorno Linux para ciberseguridad</p></div>
+          <div class="card"><div class="ic">lab/</div><h3>TryHackMe</h3><p>Laboratorios prácticos de ciberseguridad</p></div>
+          <div class="card"><div class="ic">calc/</div><h3>MATLAB</h3><p>Análisis numérico y programación</p></div>
         </div>
       </section>
 
@@ -287,7 +302,7 @@
             <div class="meter" aria-label="B2"><span class="on"><i>A1</i></span><span class="on"><i>A2</i></span><span class="on"><i>B1</i></span><span class="on"><i>B2</i></span><span><i>C1</i></span><span><i>C2</i></span></div>
             <span class="lv">&nbsp;</span>
           </div>
-          <div class="certline">&gt; Inglés certificado por <b>Cambridge</b>: B2 First · B1 Preliminary · A1</div>
+          <div class="certline">&gt; Inglés certificado por <b>Cambridge</b>: B2 First · B1 Preliminary</div>
         </div>
       </section>
 
@@ -311,14 +326,12 @@
             <button class="copy" type="button" data-copy="marcoscj13062005@gmail.com">copiar</button>
           </div>
           <div class="card">
-            <div class="ic">teléfono</div>
-            <a href="tel:+34618072674">+34 618 072 674</a><br>
-            <button class="copy" type="button" data-copy="+34618072674">copiar</button>
-          </div>
-          <div class="card">
             <div class="ic">github</div>
             <a href="https://github.com/marcenex" target="_blank" rel="noopener">github.com/marcenex</a>
-            <!-- LinkedIn: añadir aquí cuando esté -->
+          </div>
+          <div class="card">
+            <div class="ic">linkedin</div>
+            <a href="https://www.linkedin.com/in/mcj99" target="_blank" rel="noopener">linkedin.com/in/mcj99</a>
           </div>
         </div>
       </section>
@@ -408,14 +421,15 @@
       input = document.getElementById('termin'), term = document.getElementById('term');
   var hist = [], hi = 0;
   var cmds = {
-    help: 'Comandos disponibles:\n  whoami        quién soy\n  sobre_mi      resumen\n  certs         certificaciones\n  skills        habilidades técnicas\n  idiomas       idiomas\n  contacto      cómo contactarme\n  github        abrir mi GitHub\n  clear         limpiar pantalla',
+    help: 'Comandos disponibles:\n  whoami        quién soy\n  sobre_mi      resumen\n  certs         certificaciones\n  base          conocimientos base\n  skills        habilidades técnicas\n  idiomas       idiomas\n  contacto      cómo contactarme\n  github        abrir mi GitHub\n  linkedin      abrir mi LinkedIn\n  clear         limpiar pantalla',
     whoami: 'Marcos Contreras Jiménez\nEstudiante de Ingeniería Telemática · UMA · Málaga',
     sobre_mi: 'Ciberseguridad ofensiva (OSCP), redes y electrónica digital.\nBusco prácticas en pentesting, red team o seguridad de redes.',
-    certs: '[OffSec]     OSCP\n[—]          Fundamentos de Kali Linux\n[—]          Introducción al Red Teaming\n[Cambridge]  B2 First · B1 Preliminary · A1\n[MathWorks]  MATLAB Onramp',
+    certs: '[OffSec]     OSCP\n[—]          Fundamentos de Kali Linux\n[—]          Introducción al Red Teaming\n[Cambridge]  B2 First · B1 Preliminary\n[MathWorks]  MATLAB Onramp',
     skills: 'seguridad  → Kali Linux, Wireshark, Pentesting, Red Team\nlenguajes  → Python, C++, Java, JavaScript\nweb        → HTML, CSS\nhardware   → VHDL\nredes      → Cisco Packet Tracer\nsistemas   → Linux/Ubuntu, Windows/CMD, máquinas virtuales\ncálculo    → MATLAB',
     idiomas: 'Español → nativo\nInglés  → B2 (Cambridge B2 First)',
-    contacto: 'email    marcoscj13062005@gmail.com\ntel      +34 618 072 674\ngithub   github.com/marcenex',
-    ls: 'sobre_mi.txt  certificaciones/  skills.json  idiomas.conf  formacion.log',
+    contacto: 'email    marcoscj13062005@gmail.com\ngithub   github.com/marcenex\nlinkedin linkedin.com/in/mcj99',
+    base: 'Hack The Box  → laboratorios de ciberseguridad\nKali Linux    → entorno Linux para ciberseguridad\nTryHackMe     → laboratorios prácticos de ciberseguridad\nMATLAB        → análisis numérico y programación',
+    ls: 'sobre_mi.txt  certificaciones/  conocimientos_base/  skills.json  idiomas.conf  formacion.log',
     pwd: '/home/marcos',
     date: function () { return new Date().toString(); },
     sudo: 'marcos no está en el archivo sudoers. Este incidente será reportado. ;)',
@@ -435,6 +449,7 @@
     hist.push(raw); hi = hist.length;
     var key = raw.toLowerCase();
     if (key === 'clear') { out.innerHTML = ''; return; }
+    if (key === 'linkedin') { print('Abriendo <a href="https://www.linkedin.com/in/mcj99" target="_blank" rel="noopener">linkedin.com/in/mcj99</a>…'); return; }
     if (key === 'github') { print('Abriendo <a href="https://github.com/marcenex" target="_blank" rel="noopener">github.com/marcenex</a>…'); return; }
     if (key.indexOf('sudo') === 0) key = 'sudo';
     var r = cmds[key];
